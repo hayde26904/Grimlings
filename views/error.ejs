@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GRIMLINGS</title>
+    <title>Error</title>
 </head>
 <body>
-    <h1>GRIMLINGS</h1>
-    <% if(isLoggedIn) { %>
-        <p>Hello, <%= user.fb_name %></p>
+    <% if(typeof errorMessage !== 'undefined') { %>
+        <%= errorMessage %>
     <% } else { %>
-        <a href="/user/login">Login</a>
+        An error occurred.
     <% } %>
 </body>
 </html>
