@@ -9,6 +9,7 @@
     <h1>GRIMLINGS</h1>
     <% if(isLoggedIn) { %>
         <p>Hello, <%= user.fb_name %></p>
+        <a href="/menu">Main Menu</a>
     <% } else { %>
         <a href="/user/login">Login</a>
     <% } %>
