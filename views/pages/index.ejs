@@ -1,0 +1,23 @@
+<%- include('../partials/header.ejs', {pageTitle: 'Home'}); %>
+
+<link rel="stylesheet" href="/public/css/home.css">
+
+    <div class="mainContainer">
+        <div class="content">
+
+            <center>
+
+                <h1>GRIMLINGS</h1>
+        
+                <% if(isLoggedIn) { %>
+                    <h2>Hello, <%= user.fb_name %></h2>
+                <% } else { %>
+                    <a href="/user/login">Login</a>
+                <% } %>
+        
+            </center>
+
+        </div>
+    </div>
+
+<%- include('../partials/footer.ejs') %>
