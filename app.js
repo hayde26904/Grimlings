@@ -11,6 +11,7 @@ const localsMiddleware = require('./middleware/locals');
 
 const homeRoutes = require('./routes/homeRoutes');
 const userRoutes = require('./routes/userRoutes');
+const petRoutes = require('./routes/petRoutes');
 
 app.use(session({
     secret: process.env.SECRET,
@@ -29,5 +30,6 @@ app.use(express.urlencoded({extended: true}));
 
 app.use('/', homeRoutes);
 app.use('/user', userRoutes);
+app.use('/pet', petRoutes);
 
 app.listen(process.env.PORT);
