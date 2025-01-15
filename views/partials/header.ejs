@@ -11,12 +11,12 @@
 <div class="header">
 
     <h1 id="logo" onclick="window.location.href = '/'">GRIMLINGS</h1>
+    <% if(isLoggedIn) { %>
+        <h2 id="coinCount">Coins: 17</h2>
 
-    <h2 id="coinCount">Coins: 17</h2>
-
-    <a href='/explore'><button class="headerButton">EXPLORE</button></a>
-    <a href='/games'><button class="headerButton">GAMES</button></a>
-    <a href='/shop'><button class="headerButton">SHOP</button></a>
-    <a href='/inventory'><button class="headerButton">INVENTORY</button></a>
-
+        <a href='/explore'><button class="headerButton">EXPLORE</button></a>
+        <a href='/games'><button class="headerButton">GAMES</button></a>
+        <a href='/shop'><button class="headerButton">SHOP</button></a>
+        <a href='/inventory'><button class="headerButton">INVENTORY</button></a>
+    <% } %>
 </div>

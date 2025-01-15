@@ -4,16 +4,22 @@ const urlHelper = require('../util/urlHelper.js');
 const userService = require('../services/userService.js');
 
 async function login(req, res, next) {
-    
-    if (!req.query.token) {
-        const path = req.get('Referer');
-        const host = req.get('Host');
-        const protocol = req.protocol;
-        //reinstate when formbar fixes
-        //const redirectURL = `${protocol}://${host}/user/login?redirect=${path}`;
-        const redirectURL = `${protocol}://${host}/user/login`
 
-        return res.redirect(urlHelper.addQueryParams(process.env.FB_AUTH_URL, {redirectURL}));
+    const path = req.get('Referer');
+    const host = req.get('Host');
+    const protocol = req.protocol;
+
+    //for when done
+    req.session.redirectURL = path;
+
+    if (!req.query.token) {
+
+        //for formbar
+        let formbarAuthURL = process.env.FB_AUTH_URL;
+        const redirectURL = `${protocol}://${host}/user/login`;
+        formbarAuthURL = urlHelper.addQueryParams(formbarAuthURL, {redirectURL});
+
+        return res.redirect(formbarAuthURL);
     }
 
     const tokenData = jwt.decode(req.query.token);
@@ -22,7 +28,7 @@ async function login(req, res, next) {
     try {
         const existingUser = await userService.getUserByFormbarID(tokenData.id);
 
-        if(existingUser) {
+        if (existingUser) {
             req.session.user = existingUser;
             return next();
         }
@@ -35,8 +41,8 @@ async function login(req, res, next) {
 
     } catch (error) {
 
-        res.render('pages/error', {errorMessage: error});
-    
+        res.render('pages/error', { errorMessage: error });
+
     }
 
 }

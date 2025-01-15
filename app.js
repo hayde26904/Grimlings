@@ -15,7 +15,8 @@ const userRoutes = require('./routes/userRoutes');
 app.use(session({
     secret: process.env.SECRET,
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: {secure: false}
 }));
 
 app.set('view engine', 'ejs');

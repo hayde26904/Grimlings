@@ -1,8 +1,3 @@
-function isValidURL(url) {
-    const regex = /^(http|https):\/\/[^ "]+$/;
-    return regex.test(url);
-}
-
 function addQueryParams(url, params) {
     const urlObj = new URL(url);  // Create a URL object
     Object.keys(params).forEach(key => {
@@ -13,5 +8,4 @@ function addQueryParams(url, params) {
 
 module.exports = {
     addQueryParams,
-    isValidURL
 }
