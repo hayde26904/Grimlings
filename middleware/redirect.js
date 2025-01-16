@@ -9,6 +9,7 @@ function redirectWhenDone(req, res){
         return;
     }
 
+    // Clear the redirectURL
     req.session.redirectURL = null;
     res.redirect(redirectURL);
 }

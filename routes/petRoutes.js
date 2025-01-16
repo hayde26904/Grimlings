@@ -8,6 +8,10 @@ router.get('/createpet', isLoggedIn, (req, res) => {
     res.render('pages/createpet');
 });
 
+router.get('/games', isLoggedIn, (req, res) => {
+    res.render('pages/games');
+});
+
 router.post('/createpet', isLoggedIn, petController.createPet);
 
 module.exports = router;

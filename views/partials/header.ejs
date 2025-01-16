@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,16 +8,22 @@
     <link rel="stylesheet" href="/public/css/style.css">
     <link rel="stylesheet" href="/public/css/header.css">
 </head>
+
 <body>
-<div class="header">
+    <div class="header">
 
-    <h1 id="logo" onclick="window.location.href = '/'">GRIMLINGS</h1>
-    <% if(isLoggedIn) { %>
-        <h2 id="coinCount">Coins: 17</h2>
-
+        <h1 id="logo" onclick="window.location.href = '/'">GRIMLINGS</h1>
+        <% if(isLoggedIn) { %>
+            <h2 id="coinCount">Coins: 17</h2>
+            <!--
+            Don't need these for the MVP
         <a href='/explore'><button class="headerButton">EXPLORE</button></a>
-        <a href='/games'><button class="headerButton">GAMES</button></a>
+    -->
+                <a href='/pet/games'><button class="headerButton">GAMES</button></a>
+                    <!--
+            Don't need these for the MVP
         <a href='/shop'><button class="headerButton">SHOP</button></a>
         <a href='/inventory'><button class="headerButton">INVENTORY</button></a>
-    <% } %>
-</div>
+    -->
+                    <% } %>
+    </div>
