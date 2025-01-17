@@ -13,6 +13,8 @@ const homeRoutes = require('./routes/homeRoutes');
 const userRoutes = require('./routes/userRoutes');
 const petRoutes = require('./routes/petRoutes');
 
+let coins = 0;
+
 app.use(session({
     secret: process.env.SECRET,
     resave: false,

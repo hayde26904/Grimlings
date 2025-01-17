@@ -1,0 +1,28 @@
+.container {
+    text-align: center;
+    margin-top: 50px;
+    font-family: 'Arial', sans-serif;
+}
+
+.game-over {
+    font-size: 48px;
+    color: #1a5c33;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.retry-button {
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.retry-button:hover {
+    background-color: #1a632a;
+    transform: scale(1.05);
+}

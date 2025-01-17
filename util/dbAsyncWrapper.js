@@ -1,26 +1,27 @@
-const sqlite3 = require('sqlite3').verbose();
+const sql = require('sqlite3').verbose();
+const dbInstance = new sql.Database(process.env.DB_PATH);
 
-function run(db, sql, params) {
+function run(sql, params) {
     return new Promise(async (resolve, reject) => {
-        db.run(sql, params, function(err) {
+        dbInstance.run(sql, params, function(err) {
             if (err) reject(err);
             resolve(this.lastID);
         });
     });
 }
 
-function get(db, sql, params) {
+function get(sql, params) {
     return new Promise(async (resolve, reject) => {
-        db.get(sql, params, (err, row) => {
+        dbInstance.get(sql, params, (err, row) => {
             if (err) reject(err);
             resolve(row);
         });
     });
 }
 
-function all(db, sql, params) {
+function all(sql, params) {
     return new Promise(async (resolve, reject) => {
-        db.all(sql, params, (err, rows) => {
+        dbInstance.all(sql, params, (err, rows) => {
             if (err) reject(err);
             resolve(rows);
         });

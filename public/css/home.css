@@ -1,0 +1,53 @@
+.pet-image {
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    width: 300px;
+}
+
+.pet-name {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.pet-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.feed-form {
+    margin-top: 15px;
+}
+
+.feed-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.feed-button:hover {
+    background-color: #45a049;
+}
+
+.feed-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #555;
+}
+
+.food-counter {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #777;
+}

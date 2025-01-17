@@ -6,4 +6,8 @@ router.get('/', (req, res) => {
     res.render('pages/index');
 });
 
+router.get('/end', isLoggedIn, (req, res) => {
+    res.render('pages/end');
+});
+
 module.exports = router;
