@@ -41,7 +41,7 @@ async function login(req, res, next) {
 
     } catch (error) {
 
-        res.render('pages/error', { errorMessage: error });
+        res.redirect('/error');
 
     }
 

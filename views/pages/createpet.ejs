@@ -1,0 +1,25 @@
+<%- include('../partials/header.ejs', { pageTitle: 'Create Pet' }) %>
+
+<link rel="stylesheet" href="public/css/style.css">
+<div class="mainContainer">
+    <div class="content">
+
+        <center>
+
+            <h1>CREATE PET</h1>
+            <form action="/createpet" method="POST">
+                <input type="text" name="name" placeholder="Name" required>
+                <select name="species">
+                    <% for(speciesID of Object.keys(species)) { %>
+                        <% let specie = species.get(speciesID); %>
+                        <option value="<%= speciesID %>"><%= specie.name %></option>
+                    <% } %>
+                </select>
+            
+    
+        </center>
+
+    </div>
+</div>
+    
+<%- include('../partials/footer.ejs') %>

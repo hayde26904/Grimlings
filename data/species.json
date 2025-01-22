@@ -1,6 +1,6 @@
-[
-    {
-        "id": "jimmy",
+{
+    "jimmy": {
+        "name": "Jimmy",
         "img": "/public/img/pets/jimmy.png"
     }
-]
+}
