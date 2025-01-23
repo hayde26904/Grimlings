@@ -1,0 +1,19 @@
+#speciesSelection {
+    border: 1px solid black;
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+    width: 90%;
+}
+
+.speciesRadioBox {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 20px;
+    
+}
+
+.speciesImg {
+    width: 150px;
+    height: 80px;
+}

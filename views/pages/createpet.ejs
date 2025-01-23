@@ -1,25 +1,36 @@
 <%- include('../partials/header.ejs', { pageTitle: 'Create Pet' }) %>
 
-<link rel="stylesheet" href="public/css/style.css">
-<div class="mainContainer">
-    <div class="content">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/public/css/createpet.css">
+    <div class="mainContainer">
+        <div class="content">
 
-        <center>
+            <center>
 
-            <h1>CREATE PET</h1>
-            <form action="/createpet" method="POST">
-                <input type="text" name="name" placeholder="Name" required>
-                <select name="species">
-                    <% for(speciesID of Object.keys(species)) { %>
-                        <% let specie = species.get(speciesID); %>
-                        <option value="<%= speciesID %>"><%= specie.name %></option>
-                    <% } %>
-                </select>
-            
-    
-        </center>
+                <h1>CREATE PET</h1>
+                <form action="/createpet" method="POST">
+                    <div id="speciesSelection">
 
+                        <% for(speciesID of Object.keys(species)) { %>
+
+                            <% let specie=species[speciesID]; %>
+
+                            <div class="speciesRadioBox">
+                                <img class="speciesImg" src="/public/img/pets/<%= specie.img %>" alt="<%= specie.speciesName %>">
+                                <label for="speciesID_<%= speciesID %>"><%= specie.speciesName %></label>
+                                <input type="radio" id="speciesID_<%= speciesID %>" name="speciesID" value="<%= speciesID %>">
+                            </div>
+
+                        <% } %>
+
+                    </div>
+                    <br>
+                    <input type="text" name="petName" placeholder="Name" required>
+                </form>
+
+            </center>
+
+        </div>
     </div>
-</div>
-    
-<%- include('../partials/footer.ejs') %>
+
+    <%- include('../partials/footer.ejs') %>

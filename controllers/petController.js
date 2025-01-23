@@ -37,5 +37,6 @@ async function createPet(req, res){
 }
 
 module.exports = {
+    petCreationPage,
     createPet
 }

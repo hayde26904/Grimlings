@@ -1,6 +1,18 @@
 {
     "jimmy": {
         "name": "Jimmy",
-        "img": "/public/img/pets/jimmy.png"
+        "img": "jimmy.png"
+    },
+    "test1": {
+        "name": "Test1",
+        "img": "jimmy.png"
+    },
+    "test2": {
+        "name": "Test2",
+        "img": "jimmy.png"
+    },
+    "test3": {
+        "name": "Test3",
+        "img": "jimmy.png"
     }
 }
