@@ -16,8 +16,8 @@
                             <% let specie=species[speciesID]; %>
 
                             <div class="speciesRadioBox">
-                                <img class="speciesImg" src="/public/img/pets/<%= specie.img %>" alt="<%= specie.speciesName %>">
-                                <label for="speciesID_<%= speciesID %>"><%= specie.speciesName %></label>
+                                <label for="speciesID_<%= speciesID %>"><%= specie.name %></label>
+                                <img class="speciesImg" src="/public/img/pets/<%= specie.img %>" alt="<%= specie.name %>">
                                 <input type="radio" id="speciesID_<%= speciesID %>" name="speciesID" value="<%= speciesID %>">
                             </div>
 
