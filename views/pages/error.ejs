@@ -6,8 +6,8 @@
     <title>Error</title>
 </head>
 <body>
-    <% if(typeof errorMessage !== 'undefined') { %>
-        <%= errorMessage %>
+    <% if(typeof error !== 'undefined') { %>
+        <%= error.message %>
     <% } else { %>
         An error occurred.
     <% } %>

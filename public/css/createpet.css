@@ -1,16 +1,46 @@
 #speciesSelection {
     display: inline-grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .speciesRadioBox input[type="radio"] {
-    
+    /*display: none;  Hide the radio input */
 }
 
 .speciesRadioBox {
-    
+    width: 100%;
+    padding-top: 100%; /* Makes the box a perfect square */
+    border: 1px solid black;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    position: relative; /* Required for absolute positioning of inner content */
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
 }
 
 .speciesImg {
-    width: 300px;
-    height: 150px;
+    width: 80%;
+    height: 80%;
+    max-width: 125%;
+    max-height: 125%;
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the inner content */
+}
+
+/* Style for selected radio button */
+.speciesRadioBox input[type="radio"]:checked {
+    border-color: blue; /* Change border color to indicate selection */
+}
+
+.petNameBox {
+    height: 20px;
+    width: 200px;
 }

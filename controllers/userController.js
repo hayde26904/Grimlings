@@ -41,7 +41,7 @@ async function login(req, res, next) {
 
     } catch (error) {
 
-        res.redirect('/error');
+        res.render('error', {error: new Error('Error logging in')});
 
     }
 

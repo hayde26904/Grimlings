@@ -5,10 +5,29 @@ const joi = require('joi');
 
 const dbInstance = new sql.Database(process.env.DB_PATH);
 
-async function registerPet(userUID, speciesID, name){    
-    //register pet into db
-    let lastID = await db.run(dbInstance, 'INSERT INTO pets (user_uid, species_id, name) VALUES(?,?, ?);', [userUID, speciesID, name]);
-    return lastID;
+const petSchema = require('../models/petModel');
+
+async function registerPet(userUID, speciesID, petName){
+
+    const data = {
+        petName,
+        speciesID
+    }
+
+    const { error } = petSchema.validate(data);
+
+    if (error) {
+        throw new Error('Invalid data: ' + error.message);
+    }  
+
+    try {
+        //register pet into db
+        let lastID = await db.run('INSERT INTO pets (user_uid, species_id, name, health, food, happiness) VALUES(?, ?, ?, ?, ?, ?);', [userUID, data.speciesID, data.petName, 100, 100, 100]);
+        return lastID;
+
+    } catch(error){
+        throw new Error('Error registering pet: ' + error.message);
+    }
 }
 
 async function getUserPets(userUID){

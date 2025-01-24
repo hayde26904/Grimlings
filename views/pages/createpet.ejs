@@ -8,24 +8,25 @@
             <center>
 
                 <h1>CREATE PET</h1>
-                <form action="/createpet" method="POST">
+                <form action="/pet/createpet" method="POST">
                     <div id="speciesSelection">
 
                         <% for(speciesID of Object.keys(species)) { %>
 
                             <% let specie=species[speciesID]; %>
-
-                            <div class="speciesRadioBox">
-                                <label for="speciesID_<%= speciesID %>"><%= specie.name %></label>
+                            <label class="speciesRadioBox">
                                 <img class="speciesImg" src="/public/img/pets/<%= specie.img %>" alt="<%= specie.name %>">
-                                <input type="radio" id="speciesID_<%= speciesID %>" name="speciesID" value="<%= speciesID %>">
-                            </div>
+                                <br>
+                                <input type="radio" id="speciesID_<%= speciesID %>" name="speciesID" value="<%= speciesID %>" required>
+                                <%= specie.name %></label>
+                            </label>
 
                         <% } %>
 
                     </div>
-                    <br>
-                    <input type="text" name="petName" placeholder="Name" required>
+                    <br><br>
+                    <input class="petNameBox" type="text" name="petName" placeholder="Name" required>
+                    <button type="submit">Create</button>
                 </form>
 
             </center>

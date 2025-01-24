@@ -5,11 +5,10 @@ const isLoggedIn = require('../middleware/auth');
 const petController = require('../controllers/petController');
 
 router.get('/createpet', isLoggedIn, petController.petCreationPage);
+router.post('/createpet', isLoggedIn, petController.createPet);
 
 router.get('/games', isLoggedIn, (req, res) => {
     res.render('pages/games');
 });
-
-router.post('/createpet', isLoggedIn, petController.createPet);
 
 module.exports = router;
