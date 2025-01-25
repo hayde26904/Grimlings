@@ -3,8 +3,6 @@ const sql = require('sqlite3').verbose();
 const db = require('../util/dbAsyncWrapper');
 const joi = require('joi');
 
-const dbInstance = new sql.Database(process.env.DB_PATH);
-
 const petSchema = require('../models/petModel');
 
 async function registerPet(userUID, speciesID, petName){
@@ -31,7 +29,8 @@ async function registerPet(userUID, speciesID, petName){
 }
 
 async function getUserPets(userUID){
-    let pets = await db.all(dbInstance, 'SELECT * FROM pets WHERE user_uid = ?;', [userUID]);
+    let pets = await db.all('SELECT * FROM pets WHERE user_uid = ?;', [userUID]);
+    //console.log(pets);
     return pets ?? null;
 }
 

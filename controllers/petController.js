@@ -13,18 +13,22 @@ async function petCreationPage(req, res){
 }
 
 async function petChoosePage(req, res) {
-    res.render('pages/choosepet', { species: petSpecies });
-}
-
-async function choosePet(req, res) {
     const userId = req.session.user.uid;
 
     try {
-        const pets = ('SELECT * FROM pets WHERE user_id = ?', [userId]);
-        console.log(pets);
-        return res.render('pages/choosepet', { species: petSpecies, pets: pets });
+        const pets = await petService.getUserPets(userId);
+        res.render('pages/choosepet', { species: petSpecies, pets: pets });
     } catch (error) {
-        return res.render('error', { error: new Error('Error fetching pets') });
+        res.render('error', { error: new Error('Error fetching pets') });
+    }
+}
+
+async function choosePet(req, res) {
+    try {
+        const userPets = await petService.getUserPets(req.session.user.uid);
+        res.render('pages/choosepet', { pets: userPets, species: petSpecies });
+    } catch (error) {
+        res.render('error', { error: new Error('Error retrieving pets') });
     }
 }
 
