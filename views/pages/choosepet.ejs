@@ -3,8 +3,8 @@
 <link rel="stylesheet" href="/public/css/style.css">
 <link rel="stylesheet" href="/public/css/choosepet.css">
 
-<div id="mainContainer">
-    <div id="content">
+<div class="mainContainer">
+    <div class="content">
 
         <div id="choose-pet-container" class="center">
 
@@ -16,6 +16,7 @@
 
                         <li id="pet-<%= pet.id %>" class="pet-item">
                             <% let specie = species[pet.species_id]; %>
+                            <% if (specie) { %>
                             <div class="pet" id="pet-div-<%= pet.id %>">
 
                                 <img src="/public/img/pets/<%= specie.img %>" alt="<%= pet.name %>" id="pet-img-<%= pet.id %>" class="pet-img">
@@ -28,6 +29,13 @@
                                 </form>
 
                             </div>
+                            <% } else { %>
+                            <div class="pet" id="pet-div-<%= pet.id %>">
+                                <h2 id="pet-name-<%= pet.id %>" class="pet-name"><%= pet.name %></h2>
+                                <p id="pet-species-<%= pet.id %>" class="pet-species">Species ID: <%= pet.species_id %></p>
+                                <p class="error">Species information not available.</p>
+                            </div>
+                            <% } %>
                         </li>
 
                     <% }) %>
