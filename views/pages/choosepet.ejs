@@ -1,53 +1,69 @@
 <%- include('../partials/header.ejs', { pageTitle: 'PEE PEE' }) %>
 
-<link rel="stylesheet" href="/public/css/style.css">
-<link rel="stylesheet" href="/public/css/choosepet.css">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/public/css/choosepet.css">
 
-<div class="mainContainer">
-    <div class="content">
+    <div class="mainContainer">
+        <div class="content">
 
-        <div id="choose-pet-container" class="center">
+            <center>
 
-            <h2 id="choose-pet-title" class="title">Your Pets</h2>
-            <ul id="pets-list" class="list">
+                <div id="choose-pet-container" class="center">
 
-                <% if (pets && pets.length > 0) { %>
-                    <% pets.forEach(pet => { %>
+                    <h2 id="choose-pet-title" class="title">Your Pets</h2>
+                    <ul id="pets-list" class="list">
 
-                        <li id="pet-<%= pet.id %>" class="pet-item">
-                            <% let specie = species[pet.species_id]; %>
-                            <% if (specie) { %>
-                            <div class="pet" id="pet-div-<%= pet.id %>">
+                        <% if (pets && pets.length> 0) { %>
+                            <% pets.forEach(pet=> { %>
 
-                                <img src="/public/img/pets/<%= specie.img %>" alt="<%= pet.name %>" id="pet-img-<%= pet.id %>" class="pet-img">
-                                <h2 id="pet-name-<%= pet.id %>" class="pet-name"><%= pet.name %></h2>
-                                <p id="pet-species-<%= pet.id %>" class="pet-species">Species ID: <%= pet.species_id %></p>
-                                
-                                <form action="/pet/choosepet" method="POST" id="choose-pet-form-<%= pet.id %>" class="choose-pet-form">
-                                    <input type="hidden" name="petID" value="<%= pet.id %>" id="pet-id-input-<%= pet.id %>" class="pet-id-input">
-                                    <button type="submit" id="choose-pet-button-<%= pet.id %>" class="choose-pet-button">Choose</button>
-                                </form>
+                                <li id="pet-<%= pet.id %>" class="pet-item">
+                                    <% let specie=species[pet.species_id]; %>
+                                        <% if (specie) { %>
+                                            <div class="pet" id="pet-div-<%= pet.id %>">
 
-                            </div>
-                            <% } else { %>
-                            <div class="pet" id="pet-div-<%= pet.id %>">
-                                <h2 id="pet-name-<%= pet.id %>" class="pet-name"><%= pet.name %></h2>
-                                <p id="pet-species-<%= pet.id %>" class="pet-species">Species ID: <%= pet.species_id %></p>
-                                <p class="error">Species information not available.</p>
-                            </div>
-                            <% } %>
-                        </li>
+                                                <img src="/public/img/pets/<%= specie.img %>" alt="<%= pet.name %>"
+                                                    id="pet-img-<%= pet.id %>" class="pet-img">
+                                                <h2 id="pet-name-<%= pet.id %>" class="pet-name">
+                                                    <%= pet.name %>
+                                                </h2>
+                                                <p id="pet-species-<%= pet.id %>" class="pet-species">Species ID: <%=
+                                                        pet.species_id %>
+                                                </p>
 
-                    <% }) %>
-                <% } else { %>
-                    <li id="no-pets-found" class="no-pets-found">No pets found.</li>
-                <% } %>
+                                                <form action="/pet/choosepet" method="POST"
+                                                    id="choose-pet-form-<%= pet.id %>" class="choose-pet-form">
+                                                    <input type="hidden" name="petID" value="<%= pet.id %>"
+                                                        id="pet-id-input-<%= pet.id %>" class="pet-id-input">
+                                                    <button type="submit" id="choose-pet-button-<%= pet.id %>"
+                                                        class="choose-pet-button">Choose</button>
+                                                </form>
 
-            </ul>
+                                            </div>
+                                            <% } else { %>
+                                                <div class="pet" id="pet-div-<%= pet.id %>">
+                                                    <h2 id="pet-name-<%= pet.id %>" class="pet-name">
+                                                        <%= pet.name %>
+                                                    </h2>
+                                                    <p id="pet-species-<%= pet.id %>" class="pet-species">Species ID:
+                                                        <%= pet.species_id %>
+                                                    </p>
+                                                    <p class="error">Species information not available.</p>
+                                                </div>
+                                                <% } %>
+                                </li>
+
+                                <% }) %>
+                                    <% } else { %>
+                                        <li id="no-pets-found" class="no-pets-found">No pets found.</li>
+                                        <% } %>
+
+                    </ul>
+
+                </div>
+
+            </center>
 
         </div>
-
     </div>
-</div>
 
-<%- include('../partials/footer.ejs') %>
+    <%- include('../partials/footer.ejs') %>
