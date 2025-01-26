@@ -1,22 +1,28 @@
 const express = require('express');
 const router = express.Router();
+
 const isLoggedIn = require('../middleware/auth');
+const requirePet = require('../middleware/requirePet');
 
 router.get('/', (req, res) => {
+
+    if(!req.session.user){
+        return res.redirect('/about');
+    }
+
+    if(!req.session.chosenPet){
+        return res.redirect('/pet/choosepet');
+    }
+
+    res.redirect('/map');
+});
+
+router.get('/about', (req, res) => {
     res.render('pages/index');
 });
 
-router.get('/end', isLoggedIn, (req, res) => {
-    res.render('pages/end');
-});
-
-router.get('/logout', (req, res) => {
-    req.session.destroy((err) => {
-        if (err) {
-            return res.status(500).send("Failed to destroy session.");
-        }
-        res.redirect('/');
-    });
+router.get('/map', requirePet, (req, res) => {
+    res.render('pages/map');
 });
 
 module.exports = router;

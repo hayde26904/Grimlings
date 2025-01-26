@@ -13,18 +13,10 @@
     <div class="header">
 
         <h1 id="logo" onclick="window.location.href = '/'">GRIMLINGS</h1>
-        <% if(isLoggedIn) { %>
-            <!--
-            Don't need these for the MVP
-        <a href='/explore'><button class="headerButton">EXPLORE</button></a>
-    -->
-            <a href='/logout'><button class="headerButton">Log Out</button></a>
-            <a href='/pet/createpet'><button class="headerButton">Create New Pet</button></a>
-            <a href='/pet/choosepet'><button class="headerButton">Choose Pet</button></a>
-            <!--
-            Don't need these for the MVP
-        <a href='/shop'><button class="headerButton">SHOP</button></a>
-        <a href='/inventory'><button class="headerButton">INVENTORY</button></a>
-    -->
-            <% } %>
+        <% if(isLoggedIn) { %>          
+            <a href='/pet/choosepet'><button class='headerButton'>Choose Pet</button></a>
+            <a href='/user/logout'><button class='headerButton'>Log Out</button></a>
+        <% } else { %>
+            <a href="/user/login"><button class="headerButton">Login</button></a>
+        <% } %>
     </div>

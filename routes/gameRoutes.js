@@ -8,7 +8,4 @@ const gameController = require('../controllers/gameController');
 router.get('/clickergame', isLoggedIn, requirePet, gameController.clickerGame);
 router.post('/clickergame', isLoggedIn, requirePet, gameController.clickerGameHandler);
 
-router.get('/mainmap', isLoggedIn, requirePet, gameController.mainMap);
-router.post('/mainmap', isLoggedIn, requirePet, gameController.mainMapHandler);
-
 module.exports = router;

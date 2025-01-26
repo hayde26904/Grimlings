@@ -29,34 +29,39 @@ async function createPet(req, res) {
 }
 
 //Pet Choose
-async function petChoosePage(req, res) {
+async function choosePetPage(req, res) {
     const userId = req.session.user.uid;
 
     try {
         const pets = await petService.getUserPets(userId);
         res.render('pages/choosepet', { species: petSpecies, pets: pets });
     } catch (error) {
-        res.render('pages/error', { error: new Error('Error fetching pets') });
+        res.render('pages/error', { error: error });
     }
 }
 
-async function choosePet(req, res) {
+async function choosePet(req, res, next) {
     const petUID = req.body.pet_uid;
-    // console.log(petUID, '(pet controller: function choosePet: petUID)');
 
     try {
         const pet = await petService.getPetByUID(petUID);
+
+        if(pet.user_uid !== req.session.user.uid){
+            throw new Error('Not your pet, pal');
+        }
+
         req.session.chosenPet = pet;
-        // console.log(req.session.chosenPet, '(pet controller: function choosePet)');
-        res.redirect('/');
+        req.session.redirectURL = '/';
+        next()
+
     }catch (error) {
-        res.render('pages/error', { error: new Error('Error choosing pet') });
+        res.render('pages/error', { error: error });
     }
 }
 
 module.exports = {
     petCreationPage,
     createPet,
-    petChoosePage,
+    choosePetPage,
     choosePet
 }

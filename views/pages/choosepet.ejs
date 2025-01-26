@@ -13,50 +13,42 @@
                     <h2 id="choose-pet-title" class="title">Your Pets</h2>
                     <ul id="pets-list" class="list">
 
-                        <% if (pets && pets.length> 0) { %>
-                            <% pets.forEach(pet=> { %>
+                        <% if (pets && pets.length > 0) { %>
+                            <% pets.forEach(pet => { %>
 
                                 <li id="pet-<%= pet.id %>" class="pet-item">
-                                    <% let specie=species[pet.species_id]; %>
-                                        <% if (specie) { %>
-                                            <div class="pet" id="pet-div-<%= pet.id %>">
+                                    <% let specie = species[pet.species_id]; %>
+                                    <% if (specie) { %>
+                                        <div class="pet" id="pet-div-<%= pet.id %>">
 
-                                                <img src="/public/img/pets/<%= specie.img %>" alt="<%= pet.name %>"
-                                                    id="pet-img-<%= pet.id %>" class="pet-img">
-                                                <h2 id="pet-name-<%= pet.id %>" class="pet-name">
-                                                    <%= pet.name %>
-                                                </h2>
-                                                <p id="pet-species-<%= pet.id %>" class="pet-species">Species ID: <%=
-                                                        pet.species_id %>
-                                                </p>
+                                            <img src="/public/img/pets/<%= specie.img %>" alt="<%= pet.name %>" id="pet-img-<%= pet.id %>" class="pet-img">
+                                            <h2 id="pet-name-<%= pet.id %>" class="pet-name"><%= pet.name %></h2>
+                                            <p id="pet-species-<%= pet.id %>" class="pet-species">Species: <%=pet.species_id %></p>
 
-                                                <form action="/pet/choosepet" method="POST" class="choose-pet-form">
+                                            <form action="/pet/choosepet" method="POST" class="choose-pet-form">
+                                                <input type="hidden" name="pet_uid" value="<%= pet.pet_uid %>">
+                                                <button type="submit" class="choose-pet-button">Select</button>
+                                            </form>
 
-                                                    <input type="hidden" name="pet_uid" value="<%= pet.pet_uid %>">
-
-                                                    <button type="submit" class="choose-pet-button">Select</button>
-                                                </form>
-
-                                            </div>
-                                            <% } else { %>
-                                                <div class="pet" id="pet-div-<%= pet.id %>">
-                                                    <h2 id="pet-name-<%= pet.id %>" class="pet-name">
-                                                        <%= pet.name %>
-                                                    </h2>
-                                                    <p id="pet-species-<%= pet.id %>" class="pet-species">Species ID:
-                                                        <%= pet.species_id %>
-                                                    </p>
-                                                    <p class="error">Species information not available.</p>
-                                                </div>
-                                                <% } %>
+                                        </div>
+                        <% } else { %>
+                                        <div class="pet" id="pet-div-<%= pet.id %>">
+                                            <h2 id="pet-name-<%= pet.id %>" class="pet-name"><%= pet.name %></h2>
+                                            <p id="pet-species-<%= pet.id %>" class="pet-species">Species:<%= pet.species_id %></p>
+                                            <p class="error">Species information not available.</p>
+                                        </div>
+                        <% } %>
                                 </li>
 
                                 <% }) %>
                                     <% } else { %>
                                         <li id="no-pets-found" class="no-pets-found">No pets found.</li>
-                                        <% } %>
+                                <% } %>
 
                     </ul>
+
+                    <br><br>
+                    <a href="/pet/createpet"><button>Create New Pet</button></a>
 
                 </div>
 

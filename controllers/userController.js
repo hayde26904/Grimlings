@@ -47,6 +47,16 @@ async function login(req, res, next) {
 
 }
 
+function logout(req, res){
+    req.session.destroy((err) => {
+        if (err) {
+            return res.status(500).send("Failed to destroy session.");
+        }
+        res.redirect('/');
+    });
+}
+
 module.exports = {
-    login
+    login,
+    logout
 }

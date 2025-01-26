@@ -1,0 +1,25 @@
+<%- include('../partials/header.ejs', { pageTitle: 'Map' }) %>
+
+<link rel="stylesheet" href="/public/css/style.css">
+<link rel="stylesheet" href="/public/css/mainmap.css">
+
+<style>
+    area {
+        background-color: red;
+    }
+</style>
+
+<div id="map-container">
+    <div id="game-map-container">
+        <img src="\public\img\maps\mainmap.gif" alt="game map" id="game-map" usemap="#worldMap">
+
+        <map name="worldMap">
+            <area shape="rect" coords="30,300,120,420" alt="Bank" href="/bank">
+            <area shape="rect" coords="150,200,230,350" alt="Casino" href="/casino">
+            <area shape="rect" coords="400,220,550,350" alt="Bar" href="/bar">
+            <area shape="rect" coords="620,250,800,400" alt="Home" href="/house">
+        </map>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>
