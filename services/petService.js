@@ -34,7 +34,14 @@ async function getUserPets(userUID){
     return pets ?? null;
 }
 
+async function getPetByUID(petUID) {
+    let pet = await db.get('SELECT * FROM pets WHERE pet_uid = ?;', [petUID]);
+    // console.log(pet, "(petService: function getPetByUID)");
+    return pet ?? null;
+}
+
 module.exports = {
     registerPet,
     getUserPets,
+    getPetByUID
 }

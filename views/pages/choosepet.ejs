@@ -1,4 +1,4 @@
-<%- include('../partials/header.ejs', { pageTitle: 'PEE PEE' }) %>
+<%- include('../partials/header.ejs', { pageTitle: 'Pick Your pet' }) %>
 
     <link rel="stylesheet" href="/public/css/style.css">
     <link rel="stylesheet" href="/public/css/choosepet.css">
@@ -30,12 +30,11 @@
                                                         pet.species_id %>
                                                 </p>
 
-                                                <form action="/pet/choosepet" method="POST"
-                                                    id="choose-pet-form-<%= pet.id %>" class="choose-pet-form">
-                                                    <input type="hidden" name="petID" value="<%= pet.id %>"
-                                                        id="pet-id-input-<%= pet.id %>" class="pet-id-input">
-                                                    <button type="submit" id="choose-pet-button-<%= pet.id %>"
-                                                        class="choose-pet-button">Select</button>
+                                                <form action="/pet/choosepet" method="POST" class="choose-pet-form">
+
+                                                    <input type="hidden" name="pet_uid" value="<%= pet.pet_uid %>">
+
+                                                    <button type="submit" class="choose-pet-button">Select</button>
                                                 </form>
 
                                             </div>

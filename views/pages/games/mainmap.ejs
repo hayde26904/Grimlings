@@ -1,0 +1,45 @@
+<%- include('../../partials/header.ejs', { pageTitle: 'Minigame' }) %>
+
+<link rel="stylesheet" href="/public/css/style.css">
+<link rel="stylesheet" href="/public/css/mainmap.css">
+
+<div id="map-container">
+    <div id="game-map-container">
+        <img src="\public\img\maps\mainmap.gif" alt="game map" id="game-map">
+
+        <!-- 
+        !!!HAYDEN!!!
+        Map resizes based on screen size but not if it gets too small
+        then the building things get messed up but i don't think anyone has a 400 X 400 
+        screen so it should be fine
+        -->
+
+        <div class="building" data-id="bank"></div>
+        <div class="building" data-id="arcade"></div>
+        <div class="building" data-id="bar"></div>
+        <div class="building" data-id="house"></div>
+    </div>
+</div>
+
+<script>
+    //Skibidi this skibidi that - 12:59am
+    const handleBuildingClick = (buildingId) => {
+        fetch('/game/mainmap', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ building: buildingId }),
+        })
+    };
+
+    //Don't worry hayden ima buff this out tomorrow (technically today) - 1:02am
+    document.querySelectorAll('.building').forEach(building => {
+        building.addEventListener('click', () => {
+            const buildingId = building.getAttribute('data-id');
+            handleBuildingClick(buildingId);
+        });
+    });
+</script>
+
+<%- include('../../partials/footer.ejs') %>
