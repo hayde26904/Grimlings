@@ -10,7 +10,7 @@ const petSpecies = require('../data/species.json');
 
 //Pet Creation
 async function petCreationPage(req, res) {
-    res.render('pages/createPet', { species: petSpecies });
+    res.render('pages/createPet', { species: petSpecies, petRules: petRules });
 }
 
 async function createPet(req, res) {
@@ -20,10 +20,10 @@ async function createPet(req, res) {
     }
 
     try {
-        const petUID = petService.registerPet(req.session.user.uid, data.speciesID, data.petName);
+        const petUID = await petService.registerPet(req.session.user.uid, data.speciesID, data.petName);
         return res.redirect('/');
     } catch (error) {
-        return res.render('pages/error', { error: new Error('Error creating pet') });
+        return res.render('pages/error', { error: error });
     }
 
 }
