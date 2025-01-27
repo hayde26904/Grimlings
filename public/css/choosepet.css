@@ -1,0 +1,93 @@
+/* Center alignment and grid layout adjustments */
+#choose-pet-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+#choose-pet-title {
+    text-align: center;
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Updated Pets List Styling */
+#pets-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 0; /* Ensures no unwanted spacing around the grid */
+}
+
+/* Pet Items Styling */
+.pet-item {
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 200px;
+}
+
+.pet-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Pet Image */
+.pet-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+/* Pet Name */
+.pet-name {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* Pet Species */
+.pet-species {
+    font-size: 1em;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+/* Choose Pet Button */
+.choose-pet-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.choose-pet-button:hover {
+    background-color: #45a049;
+}
+
+/* No Pets Found */
+.no-pets-found {
+    text-align: center;
+    font-size: 1.2em;
+    color: #f44336;
+    margin-top: 20px;
+}

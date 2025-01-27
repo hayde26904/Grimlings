@@ -1,34 +1,14 @@
 {
-    "jimmy": {
-        "name": "Jimmy",
-        "img": "jimmy.png"
+    "Gribler": {
+        "name": "Gribler",
+        "img": "gribler.png"
     },
-    "test1": {
-        "name": "Test1",
-        "img": "jimmy.png"
+    "Sloodge": {
+        "name": "Sloodge",
+        "img": "sloodge.png"
     },
-    "test2": {
-        "name": "Test2",
-        "img": "jimmy.png"
-    },
-    "test3": {
-        "name": "Test3",
-        "img": "jimmy.png"
-    },
-    "test4": {
-        "name": "Test4",
-        "img": "jimmy.png"
-    },
-    "test5": {
-        "name": "Test5",
-        "img": "jimmy.png"
-    },
-    "test6": {
-        "name": "Test6",
-        "img": "jimmy.png"
-    },
-    "test7": {
-        "name": "Test7",
-        "img": "jimmy.png"
+    "Smifer": {
+        "name": "Smifer",
+        "img": "goodboy.png"
     }
 }
